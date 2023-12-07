@@ -1,18 +1,10 @@
-use std::{
-    fs,
-    time::{SystemTime, UNIX_EPOCH},
-};
+use std::fs;
 
 fn main() {
-    let args = std::env::args().collect::<Vec<String>>();
-
-
     let dir = std::fs::read_dir(
         r#"C:\Users\thega\AppData\Roaming\yuzu\nand\user\save\0000000000000000\F0748197393EEDCDE71C4EE207801D64\0100F2C0115B6000\"#,
     )
     .unwrap();
-
-    let time = SystemTime::now().duration_since(UNIX_EPOCH).unwrap();
 
     let new_dir = r#"C:\Users\thega\Documents\totk_save_backups\sav_"#.to_owned()
         + &rand::random::<u32>().to_string();
